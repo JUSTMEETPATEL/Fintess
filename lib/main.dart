@@ -1,4 +1,5 @@
 import 'package:fitness/pages/home.dart';
+import 'package:fitness/pages/saladpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Poppins"),
-      home:  HomePage(),
+      home:  const HomePage(),
+      routes: {
+        '/saladpage' :(context) => SaladPage(),
+      },
       
     );
   }
