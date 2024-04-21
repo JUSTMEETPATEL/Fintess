@@ -3,7 +3,9 @@
 import 'package:fitness/models/category_model.dart';
 import 'package:fitness/models/diet_model.dart';
 import 'package:fitness/models/popular_model.dart';
+import 'package:fitness/pages/categorypage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 // ignore: must_be_immutable
@@ -255,9 +257,6 @@ class _HomePageState extends State<HomePage> {
             ),
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: (){
-                  Navigator.pushNamed(context, '/saladpage');
-                },
                 child: Container(
                   width: 106,
                   decoration: BoxDecoration(
@@ -277,12 +276,27 @@ class _HomePageState extends State<HomePage> {
                           child: SvgPicture.asset(categories[index].iconPath),
                         ),
                       ),
-                      Text(
-                        categories[index].name,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                            fontSize: 14),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context)=>CategoryPage(
+                                data: categories[index].name,
+                                path: categories[index].iconPath,
+                                heading: categories[index].name,
+                                recepie: categories[index].recepie,
+
+                                )
+                            )
+                          );
+                        },
+                        child: Text(
+                          categories[index].name,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                              fontSize: 14),
+                        ),
                       ),
                     ],
                   ),

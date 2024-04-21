@@ -1,25 +1,20 @@
-// ignore_for_file: must_be_immutable, sort_child_properties_last, duplicate_ignore
-
-import 'package:fitness/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class SaladPage extends StatelessWidget {
-  SaladPage({super.key});
-
-  List<CategoryModel> categories = [];
-
-  void initalInfo(){
-    categories = CategoryModel.getCategories();
-  }
+class PiePage extends StatefulWidget {
+  const PiePage({super.key});
 
   @override
+  State<PiePage> createState() => _PiePageState();
+}
+
+class _PiePageState extends State<PiePage> {
+  @override
   Widget build(BuildContext context) {
-    initalInfo();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Salad',
+          'Pie',
           style: TextStyle(
               color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         ),
